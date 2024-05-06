@@ -8,7 +8,6 @@ class HhCompany(HhAbc):
     def __init__(self, employer_id):
         self.__url = f'https://api.hh.ru/employers/{employer_id}'
         self.headers = {'User-Agent': 'HH-User-Agent'}
-        self.params = {'page': 0, 'per_page': 100}
         self.company = None
         print('Ждите! Идет загрузка данных...')
 
