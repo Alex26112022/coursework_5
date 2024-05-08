@@ -22,7 +22,7 @@ class HhCompany(HhAbc):
                 f"Request failed with status code: {response.status_code}")
 
     def get_info(self) -> dict:
-        """ Возвращает список данных. """
+        """ Возвращает словарь данных. """
         return self.company
 
     def __str__(self):
