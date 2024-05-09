@@ -3,7 +3,7 @@ import requests
 from src.hh_company import HhCompany
 
 
-def test_hh_vacancy(monkeypatch):
+def test_hh_company(monkeypatch):
     """ Проверка парсера. """
 
     class MockResponse:
