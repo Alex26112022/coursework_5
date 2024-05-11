@@ -6,11 +6,11 @@ from config import config
 class DbCreate:
     """ Создает и наполняет БД. """
 
-    def __init__(self, db_name='postgres'):
+    def __init__(self, db_name):
         self.conn_params = config()
         self.db_name = db_name
 
-    def create_database(self, name_new_database='hh_base'):
+    def create_database(self, name_new_database):
         """ Создает базу данных. """
         conn = psycopg2.connect(dbname=self.db_name, **self.conn_params)
         conn.autocommit = True
@@ -22,8 +22,7 @@ class DbCreate:
         conn.commit()
         conn.close()
 
-    def create_table_companies(self, name_new_database='hh_base',
-                               table_name='companies'):
+    def create_table_companies(self, name_new_database, table_name):
         """ Создает таблицу компании. """
         conn = psycopg2.connect(dbname=name_new_database, **self.conn_params)
         conn.autocommit = True
@@ -41,8 +40,7 @@ class DbCreate:
         conn.commit()
         conn.close()
 
-    def create_table_vacancies(self, name_new_database='hh_base',
-                               table_name='vacancies'):
+    def create_table_vacancies(self, name_new_database, table_name):
         """ Создает таблицу вакансии. """
         conn = psycopg2.connect(dbname=name_new_database, **self.conn_params)
         conn.autocommit = True
@@ -65,5 +63,14 @@ class DbCreate:
                         company_description TEXT
                         )
                         """)
+        conn.commit()
+        conn.close()
+
+    def drop_table(self, name_new_database, table_name):
+        """ Удаляет заданную таблицу в заданной БД. """
+        conn = psycopg2.connect(dbname=name_new_database, **self.conn_params)
+        conn.autocommit = True
+        with conn.cursor() as cur:
+            cur.execute(f'DROP TABLE IF EXISTS {table_name}')
         conn.commit()
         conn.close()
