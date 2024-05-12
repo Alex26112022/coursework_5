@@ -57,8 +57,7 @@ class DbCreate:
                         snippet TEXT,
                         schedule VARCHAR(50),
                         experience VARCHAR(50),
-                        employment VARCHAR(50),
-                        company_description TEXT
+                        employment VARCHAR(50)
                         )
                         """)
         conn.commit()
