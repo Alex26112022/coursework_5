@@ -15,10 +15,8 @@ class DbCreate:
         conn = psycopg2.connect(dbname=self.db_name, **self.conn_params)
         conn.autocommit = True
         with conn.cursor() as cur:
-            try:
-                cur.execute(f'CREATE DATABASE {name_new_database}')
-            except psycopg2.Error:
-                pass
+            cur.execute(f'DROP DATABASE IF EXISTS {name_new_database}')
+            cur.execute(f'CREATE DATABASE {name_new_database}')
         conn.commit()
         conn.close()
 

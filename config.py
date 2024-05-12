@@ -7,6 +7,7 @@ vacancies_path = os.path.join(ROOT_DIR, 'src', 'vacancy.json')
 companies_test_path = os.path.join(ROOT_DIR, 'tests', 'company_test.json')
 vacancies_test_path = os.path.join(ROOT_DIR, 'tests', 'vacancy_test.json')
 database_params = os.path.join(ROOT_DIR, 'src', 'database.ini')
+currency_json = os.path.join(ROOT_DIR, 'src', 'currency.json')
 
 
 def config(filename=database_params, section="postgresql"):
