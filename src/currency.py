@@ -26,11 +26,11 @@ class Currency:
             data = json.load(file).get('Valute')
 
         for el in data:
-            charCode = el
+            char_code = el
             value = data.get(el).get('Value')
             nominal = data.get(el).get('Nominal')
             full_name = data.get(el).get('Name')
-            full_information = charCode, value, nominal, full_name
+            full_information = char_code, value, nominal, full_name
             self.currency_list.append(full_information)
 
     def get_currency(self):

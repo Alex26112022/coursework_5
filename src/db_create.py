@@ -64,6 +64,22 @@ class DbCreate:
         conn.commit()
         conn.close()
 
+    def create_table_currency(self, name_new_database, table_name):
+        """ Создает таблицу валюты. """
+        conn = psycopg2.connect(dbname=name_new_database, **self.conn_params)
+        conn.autocommit = True
+        with conn.cursor() as cur:
+            cur.execute(f"""
+                        CREATE TABLE IF NOT EXISTS {table_name} (
+                        char_code VARCHAR(10) PRIMARY KEY,
+                        value REAL,
+                        nominal INTEGER,
+                        full_name VARCHAR(50)
+                        )
+                        """)
+        conn.commit()
+        conn.close()
+
     def drop_table(self, name_new_database, table_name):
         """ Удаляет заданную таблицу в заданной БД. """
         conn = psycopg2.connect(dbname=name_new_database, **self.conn_params)
