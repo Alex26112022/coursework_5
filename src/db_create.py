@@ -4,7 +4,7 @@ from config import config
 
 
 class DbCreate:
-    """ Создает и наполняет БД. """
+    """ Создает и формирует структуру БД. """
 
     def __init__(self, db_name):
         self.conn_params = config()
