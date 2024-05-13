@@ -1,13 +1,10 @@
 import json
 
-from config import companies_path, vacancies_path
-
 
 class JsonWorker:
     """ Класс взаимодействия с json-файлом. """
 
-    def __init__(self, company_path: str = companies_path,
-                 vacancy_path: str = vacancies_path):
+    def __init__(self, company_path: str, vacancy_path: str):
         self.vacancy_info = None
         self.company_info = None
         self.company_path = company_path
@@ -56,9 +53,13 @@ class JsonWorker:
     def get_vacancies_info(self) -> list[tuple]:
         """ Возвращает список кортежей необходимых данных о вакансиях. """
         all_vacancies_info = []
+        unique_vacancies_id = []
         if self.vacancy_info is not None:
             for vacancy in self.vacancy_info:
                 vacancy_id = vacancy.get('id')
+                if vacancy_id in unique_vacancies_id:
+                    continue
+                unique_vacancies_id.append(vacancy_id)
                 company_id = vacancy.get('employer')
                 if company_id is not None:
                     company_id = company_id.get('id')
