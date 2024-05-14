@@ -114,10 +114,3 @@ class DBManager:
         conn.commit()
         conn.close()
         return result
-
-
-new_select = DBManager('postgres')
-result_info = new_select.get_vacancies_with_keyword('hh_base',
-                                                    'companies',
-                                                    'vacancies',
-                                                    'python')
