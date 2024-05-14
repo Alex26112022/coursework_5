@@ -1,11 +1,11 @@
 from src.db_manager import DBManager
 
 
-def interactive_func():
+def interactive_func(db_name):
     """ Взаимодействие с пользователем. """
     # Создаем подключение. Если название Вашей БД отличается введите свое!
     while True:
-        db_manager = DBManager('postgres')
+        db_manager = DBManager(db_name)
 
         print('Укажите требуемую выборку или наберите exit для '
               'выхода...')
