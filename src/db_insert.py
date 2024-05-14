@@ -49,6 +49,11 @@ class DbInsert:
         conn = psycopg2.connect(dbname=name_new_database, **self.conn_params)
         conn.autocommit = True
         with conn.cursor() as cur:
+            cur.execute(f"""
+                        INSERT INTO {table_name}
+                        (char_code, value, nominal, full_name) VALUES
+                        ('RUR', 1, 1, 'Российский рубль')
+                        """)
             cur.executemany(f"""
                         INSERT INTO {table_name}
                         (char_code, value, nominal, full_name) VALUES

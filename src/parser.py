@@ -1,12 +1,6 @@
 from src.hh_company import HhCompany
 from src.hh_vacancy import HhVacancy
 
-# companies = {3127: 'Мегафон', 4934: 'Билайн',
-#              3776: 'МТС', 1740: 'Yandex',
-#              2748: 'Ростелеком', 907345: 'Лукойл',
-#              2180: 'Ozon', 87021: 'WILDBERRIES',
-#              3529: 'Сбер', 1373: 'Аэрофлот'}
-
 
 class Parser:
     """
