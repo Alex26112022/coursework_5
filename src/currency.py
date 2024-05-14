@@ -15,6 +15,7 @@ class Currency:
         Получает актуальные данные о курсах валют с API Центробанка
         и записывает их в json-файл.
         """
+        print('\tЗагрузка актуальных данных курсов валют...')
         with open(self.json_path, 'w', encoding='utf-8') as file:
             response = requests.get(
                 'https://www.cbr-xml-daily.ru/daily_json.js').json()

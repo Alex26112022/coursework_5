@@ -11,7 +11,6 @@ class HhVacancy(HhAbc):
         self.headers = {'User-Agent': 'HH-User-Agent'}
         self.params = {'page': 0, 'per_page': 100}
         self.vacancies = []
-        print('Ждите! Идет загрузка данных...')
 
     def load_info(self):
         """ Загружает данные с сайта. """

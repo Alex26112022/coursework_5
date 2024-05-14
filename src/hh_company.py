@@ -9,7 +9,6 @@ class HhCompany(HhAbc):
         self.__url = f'https://api.hh.ru/employers/{employer_id}'
         self.headers = {'User-Agent': 'HH-User-Agent'}
         self.company = None
-        print('Ждите! Идет загрузка данных...')
 
     def load_info(self):
         """ Загружает данные с сайта. """
